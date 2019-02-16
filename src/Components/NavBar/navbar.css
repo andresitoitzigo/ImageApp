@@ -1,0 +1,21 @@
+.cabecera {
+    width: 100%;
+
+}
+
+.navergar-servicios {
+    width: 100%;
+    background-color: aquamarine;
+    flex: 1
+    
+}
+
+.lista-item {
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+.item {
+    
+}
