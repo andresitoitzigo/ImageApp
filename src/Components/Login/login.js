@@ -1,35 +1,13 @@
 import React, { Component } from 'react';
-import './login.css'
+import './login.css';
 
 class Login extends Component {
   render() {
     return (
-      <div className="wrapper">
-        <div className="form-wrapper">
-          <h1>Create Account</h1>
-          <form onSubmit={this.handleSubmit} noValidate>
-            <div className="firstName">
-              <label htmlFor="firstName">Nombre</label>
-              <input
-                className=""
-                placeholder="Nombres"
-                type="text"
-                name="firstName"
-                noValidate
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="lastName">
-              <label htmlFor="lastName">Apellidos</label>
-              <input
-                className=""
-                placeholder="Apellidos"
-                type="text"
-                name="lastName"
-                noValidate
-                onChange={this.handleChange}
-              />
-            </div>
+      <div className="containers">
+        <div className="formindex">
+          <h1>Iniciar</h1>
+          <form>
             <div className="email">
               <label htmlFor="email">Email</label>
               <input
@@ -54,8 +32,8 @@ class Login extends Component {
               />
             </div>
             <div className="createAccount">
-              <button type="submit">Crear Cuenta</button>
-              <small>¿Ya tienes una Cuenta Existente?</small>
+              <button type="submit">Inicia Sesion</button>
+              <small>Registrate</small>
             </div>
           </form>
         </div>

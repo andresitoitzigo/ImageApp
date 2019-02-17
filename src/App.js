@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-import Login from './Components/Login/login'
-import NavBar from './Components/NavBar/navbar';
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from './Components/Home/home';
+import Register from './Components/Register/register'
+import Nav from './Components/NavBar/navbar'
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <NavBar/>
+  render () {
+    return(
+      
+      <BrowserRouter>
+        <div>
+          <Nav/>
+          <Route path="/" component={Home} exact />
+          <Route path="/register" component={Register} />
+        
+        </div>
 
-        <Login/>
-
-      </div>
-    );
+      </BrowserRouter>
+     
+    )
   }
 }
-
 export default App;
