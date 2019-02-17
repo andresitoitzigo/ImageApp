@@ -1,12 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import prueba from './../../redux/actions/actions'
+
 import './login.css'
 
 class Login extends Component {
+  constructor(props) {
+    super(props)
+    console.log(props.hola)
+  }
+
+  handleChange = e => {
+    const {
+      target: { value = '' } = {
+        value: ''
+      }
+    } = e
+    console.log('cambió')
+    this.props.prueba(value)
+  }
+
+  handleChanges = e => {
+    console.log(this.props.hola, e, 'cambiós')
+  }
   render() {
+    console.log(this.props.hola, 'Render')
     return (
       <div className="wrapper">
         <div className="form-wrapper">
-          <h1>Create Account</h1>
+          <h1>Create Account {this.props.hola}</h1>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="firstName">
               <label htmlFor="firstName">Nombre</label>
@@ -15,7 +37,6 @@ class Login extends Component {
                 placeholder="Nombres"
                 type="text"
                 name="firstName"
-                noValidate
                 onChange={this.handleChange}
               />
             </div>
@@ -27,7 +48,7 @@ class Login extends Component {
                 type="text"
                 name="lastName"
                 noValidate
-                onChange={this.handleChange}
+                onChange={this.handleChanges}
               />
             </div>
             <div className="email">
@@ -38,9 +59,8 @@ class Login extends Component {
                 type="email"
                 name="email"
                 noValidate
-                onChange={this.handleChange}
+                // onChange={}
               />
-             
             </div>
             <div className="password">
               <label htmlFor="password">Password</label>
@@ -50,7 +70,7 @@ class Login extends Component {
                 type="password"
                 name="password"
                 noValidate
-                onChange={this.handleChange}
+                // onChange={}
               />
             </div>
             <div className="createAccount">
@@ -60,10 +80,20 @@ class Login extends Component {
           </form>
         </div>
       </div>
-    );
+    )
   }
 }
 
+const mapStateToProps = (state, props) => {
+  return {
+    hola: state.hola
+  }
+}
+const mapDispatchToProps = {
+  prueba
+}
 
-
-export default Login;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login)
