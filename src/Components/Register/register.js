@@ -6,30 +6,8 @@ class Register extends Component {
     return (
       <div className="wrapper">
         <div className="form-wrapper">
-          <h1>Create Account</h1>
-          <form onSubmit={this.handleSubmit} noValidate>
-            <div className="firstName">
-              <label htmlFor="firstName">Nombre</label>
-              <input
-                className=""
-                placeholder="Nombres"
-                type="text"
-                name="firstName"
-                noValidate
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="lastName">
-              <label htmlFor="lastName">Apellidos</label>
-              <input
-                className=""
-                placeholder="Apellidos"
-                type="text"
-                name="lastName"
-                noValidate
-                onChange={this.handleChange}
-              />
-            </div>
+          <h1>Inicia Sesion</h1>
+          <form>
             <div className="email">
               <label htmlFor="email">Email</label>
               <input

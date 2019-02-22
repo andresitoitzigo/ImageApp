@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
 import './navbar.css';
-
+import { Link, NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class NavBar extends Component {
   render() {
     return (
-        <div class="Header">
-            <nav class="">
+        <div className="Header">
+            <nav className="">
                 <ul class="">
                     <li >
-                    <a  class="servicios-item">
-                        inicio
-                    </a>
+                    <NavLink exact to="/" activeClassName="is-selected">
+                        Inicio
+                    </NavLink>
                     </li>
                     <li class="item">
-                    <a  class="servicios-item">
-                        perfil
-                    </a>
+                    <NavLink to="/register" activeClassName="is-selected">
+                        Registrar
+                    </NavLink>
                     </li>
-                    <li class="item">
-                    <a  class="servicios-item">
-                        Ajustes
-                    </a>
+                    <li class="ajustes">
+                    <NavLink to="/publicaciones" activeClassName="is-selected">
+                        Explorar
+                    </NavLink>
                     </li>
-                    <li class="item">
-                    <a  class="servicios-item">
-                        contacto
-                    </a>
+                    <li class="contacto">
+                    <NavLink  to="/contacto" activeClassName="is-selected">
+                        Contacto
+                    </NavLink>
                     </li>
                 </ul>
             </nav>

@@ -10,13 +10,65 @@ class Login extends Component {
     console.log(props.hola)
   }
 
-  handleChange = e => {
+  state = {
+    email: '',
+    password: '',
+    displayName: 'andrea'
+  }
+  
+  handleSubmit = (e) => { 
+    const { email, displayName, password} = this.state
+    console.log(email, displayName, password,'verga');
+    fetch('http://localhost:4000/registro',{
+      method: 'POST',
+      header:{
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        displayName: displayName
+      })
+    })
+    .then(response => {
+      console.log(response)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+
+    e.preventDefault();
+
+  }
+  nameHandleChange = e => {
     const {
       target: { value = '' } = {
         value: ''
       }
     } = e
     console.log('cambió')
+    if(value) this.setState({displayName: value})
+    this.props.prueba(value)
+  }
+  emailHandleChange = e => {
+    const {
+      target: { value = '' } = {
+        value: ''
+      }
+    } = e
+    console.log('cambió')
+    if(value) this.setState({email: value})
+    this.props.prueba(value)
+  }
+  passwordHandleChange = e => {
+    const {
+      target: { value = '' } = {
+        value: ''
+      }
+    } = e
+    console.log('cambió')
+    if(value) this.setState({password: value})
     this.props.prueba(value)
   }
 
@@ -24,12 +76,12 @@ class Login extends Component {
     console.log(this.props.hola, e, 'cambiós')
   }
   render() {
-    console.log(this.props.hola, 'Render')
+    console.log(this.state.email, 'Render')
     return (
       <div className="containers">
         <div className="formindex">
           <h1>Create Account {this.props.hola}</h1>
-          <form onSubmit={this.handleSubmit} noValidate>
+          <form onSubmit={this.handleSubmit} >
             <div className="firstName">
               <label htmlFor="firstName">Nombre</label>
               <input
@@ -37,7 +89,7 @@ class Login extends Component {
                 placeholder="Nombres"
                 type="text"
                 name="firstName"
-                onChange={this.handleChange}
+                onChange={this.nameHandleChange}
               />
             </div>
             <div className="lastName">
@@ -59,7 +111,7 @@ class Login extends Component {
                 type="email"
                 name="email"
                 noValidate
-                // onChange={}
+                onChange={this.emailHandleChange}
               />
             </div>
             <div className="password">
@@ -70,7 +122,7 @@ class Login extends Component {
                 type="password"
                 name="password"
                 noValidate
-                // onChange={}
+                onChange={this.passwordHandleChange}
               />
             </div>
             <div className="createAccount">

@@ -10,7 +10,7 @@
   
   .form-wrapper {
     width: 400px;
-    display: flex;
+    margin-top: -50px;
     flex-direction: column;
     padding: 20px 40px;
     border-radius: 10px;

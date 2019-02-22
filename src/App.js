@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from './Components/Home/home';
-import Register from './Components/Register/register'
-import Nav from './Components/NavBar/navbar'
+import Login from './Components/Login/login';
+import Nav from './Components/NavBar/navbar';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faIgloo, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import Publication from './Components/Publication/publication';
+import Contacto from './Components/Contactos/contacto';
+library.add(faIgloo)
+library.add(faCoffee)
 
 
 class App extends Component {
@@ -12,8 +19,10 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Nav/>
-          <Route path="/" component={Home} exact />
-          <Route path="/register" component={Register} />
+          <Route exact path="/" component={Home} />
+          <Route path="/register" component={Login} />
+          <Route path="/publicaciones" component={Publication} />
+          <Route path="/contacto" component={Contacto} />
         
         </div>
 
